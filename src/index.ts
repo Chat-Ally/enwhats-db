@@ -1,3 +1,3 @@
-export * from './chatService'
-export * from './phoneNumberService'
-export * from './productService'
+export * from './chats'
+export * from './phone-numbers'
+export * from './products'
