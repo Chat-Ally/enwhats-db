@@ -1,6 +1,7 @@
 {
   "name": "enwhats-db",
   "module": "index.ts",
+  "main": "src/index.ts",
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
