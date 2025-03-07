@@ -1,8 +1,10 @@
 {
   "name": "enwhats-db",
-  "module": "index.ts",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "type": "module",
+  "scripts": {
+    "build": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
