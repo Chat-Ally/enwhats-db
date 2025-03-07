@@ -1,5 +1,5 @@
 import type { UUID } from "crypto"
-import { supabase } from "./supabaseClient"
+import type { SupabaseClient } from "@supabase/supabase-js"
 
 /**
  * Creates a new order in the database.
@@ -17,6 +17,7 @@ import { supabase } from "./supabaseClient"
  * If an error occurs during the database operation, it logs the error to the console and returns `undefined`.
  */
 export async function createOrder(
+    supabase: SupabaseClient,
     chat_id: UUID,
     total: number,
     subtotal: number,
@@ -37,12 +38,12 @@ export async function createOrder(
     if (data) {
         console.log("createOrder", data)
         console.log("createOrder products", products)
-        createProductOrder(products, data[0].id)
+        createProductOrder(supabase, products, data[0].id)
     }
     return data
 }
 
-export async function createProductOrder(products: number[], orderId: number) {
+export async function createProductOrder(supabase: SupabaseClient, products: number[], orderId: number) {
     const inserts = products.map(num => ({
         product_id: num,
         order_id: orderId,

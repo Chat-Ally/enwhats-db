@@ -1,6 +1,6 @@
-import { supabase } from "./supabaseClient";
 import { getOrCreatePhoneNumber, getPhoneIdByNumber } from "./phone-numbers";
 import { getBusinessIdByPhoneNumber } from "./business";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 /**
  * Saves a chat to the database.
@@ -8,10 +8,15 @@ import { getBusinessIdByPhoneNumber } from "./business";
  * @param {string} businessId - The ID of the business associated with the chat.
  * @param {string} customerPhone - The phone number of the customer associated with the chat.
  */
-export async function saveChatToDB(businessId: number, customerPhone: string, chatId: string): Promise<void> {
+export async function saveChatToDB(
+    supabase: SupabaseClient,
+    businessId: number,
+    customerPhone: string,
+    chatId: string
+): Promise<void> {
     console.log("saveChatToDB");
 
-    const phoneNumber = await getOrCreatePhoneNumber(customerPhone);
+    const phoneNumber = await getOrCreatePhoneNumber(supabase, customerPhone);
     if (phoneNumber) {
         try {
             const { data } = await supabase
@@ -26,11 +31,12 @@ export async function saveChatToDB(businessId: number, customerPhone: string, ch
 }
 
 export async function getChatByClientAndBusinessPhone(
+    supabase: SupabaseClient,
     customerPhone: string,
     businessPhone: string
 ): Promise<any> {
-    let customerPhoneId = await getPhoneIdByNumber(customerPhone)
-    let businesId = await getBusinessIdByPhoneNumber(businessPhone)
+    let customerPhoneId = await getPhoneIdByNumber(supabase, customerPhone)
+    let businesId = await getBusinessIdByPhoneNumber(supabase, businessPhone)
 
     let { data: chats, error: chatsError } = await supabase
         .from("chats")
@@ -44,7 +50,11 @@ export async function getChatByClientAndBusinessPhone(
     return chats
 }
 
-export async function getChatId(businessId: number, customerPhoneId: number | null) {
+export async function getChatId(
+    supabase: SupabaseClient,
+    businessId: number,
+    customerPhoneId: number | null
+) {
     const { data, error } = await supabase
         .from("chats")
         .select("id")
@@ -57,7 +67,9 @@ export async function getChatId(businessId: number, customerPhoneId: number | nu
     return data?.id
 }
 
-export async function getChats() {
+export async function getChats(
+    supabase: SupabaseClient,
+) {
     const { data, error } = await supabase
         .from("chats")
         .select("*")

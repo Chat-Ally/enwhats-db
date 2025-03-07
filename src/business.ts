@@ -1,4 +1,4 @@
-import { supabase } from "./supabaseClient"
+import type { SupabaseClient } from "@supabase/supabase-js"
 
 /**
  * Fetches the business ID associated with a given phone number.
@@ -6,7 +6,10 @@ import { supabase } from "./supabaseClient"
  * @param {number} businessPhone - The phone number of the business to retrieve.
  * @returns {Promise<number>} A promise that resolves to the business ID if found, or 0 if not found.
  */
-export async function getBusinessIdByPhoneNumber(businessPhone: string): Promise<number> { // i probably break something
+export async function getBusinessIdByPhoneNumber(
+    supabase: SupabaseClient,
+    businessPhone: string
+): Promise<number> { // i probably break something
     let { data, error } = await supabase
         .from("business")
         .select("id")

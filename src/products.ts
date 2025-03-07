@@ -1,5 +1,5 @@
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { getBusinessIdByPhoneNumber } from "./business";
-import { supabase } from "./supabaseClient";
 
 /**
  * Retrieves a single product from the database based on a business phone number and product name.
@@ -8,8 +8,8 @@ import { supabase } from "./supabaseClient";
  * @param {string} productName - The name of the product to retrieve.
  * @returns {(Promise<Product | null>)} A promise that resolves to a Product object or null if an error occurs.
  */
-export async function getProduct(businessPhone: string, productName: string) {
-    let businessId = await getBusinessIdByPhoneNumber(String(businessPhone))
+export async function getProduct(supabase: SupabaseClient, businessPhone: string, productName: string) {
+    let businessId = await getBusinessIdByPhoneNumber(supabase, String(businessPhone))
     let { data, error } = await supabase
         .from("products")
         .select("*")
@@ -27,8 +27,8 @@ export async function getProduct(businessPhone: string, productName: string) {
 * @param {number} businessPhone - The phone number of the business associated with the products.
 * @returns {(Promise<Product[] | null>)} A promise that resolves to an array of Product objects or null if an error occurs.
 */
-export async function getProducts(businessPhone: string) {
-    let businessId = await getBusinessIdByPhoneNumber(businessPhone)
+export async function getProducts(supabase: SupabaseClient, businessPhone: string) {
+    let businessId = await getBusinessIdByPhoneNumber(supabase, businessPhone)
     let { data, error } = await supabase
         .from("products")
         .select("*")
