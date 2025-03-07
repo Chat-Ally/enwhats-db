@@ -3,7 +3,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "build": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts"
+    "build": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts",
+    "prepare": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
