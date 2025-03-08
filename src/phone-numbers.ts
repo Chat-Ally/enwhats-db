@@ -15,7 +15,7 @@ export async function getOrCreatePhoneNumber(supabase: SupabaseClient, customerP
         if (data) return data;
 
         const { data: upsertData } = await supabase.from("phones").upsert([{ number: customerPhone }]);
-        return upsertData[0];
+        if (upsertData) return upsertData[0];
     } catch (error) {
         console.error('getOrCreatePhoneNumber', error);
         return undefined;
