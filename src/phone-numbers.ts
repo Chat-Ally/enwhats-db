@@ -1,5 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type PhoneNumber from "./dto/phone-number";
+import type PhoneNumber from "./dto/phone-number.js";
 
 /** 
  * Save a number to the database.

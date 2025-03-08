@@ -1,5 +1,5 @@
-import { getOrCreatePhoneNumber, getPhoneIdByNumber } from "./phone-numbers";
-import { getBusinessIdByPhoneNumber } from "./business";
+import { getOrCreatePhoneNumber, getPhoneIdByNumber } from "./phone-numbers.js";
+import { getBusinessIdByPhoneNumber } from "./business.js";
 import type { SupabaseClient } from "@supabase/supabase-js";
 
 /**

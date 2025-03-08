@@ -3,9 +3,9 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts",
+    "build": "bun build --target=node --outdir=dist ./src/index.ts",
     "prepare": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts",
-    "types": "npx -p typescript tsc src/index.ts --declaration --allowJs --emitDeclarationOnly --outDir dist"
+    "types": "npx -p typescript tsc src/index.ts --declaration --allowJs --outDir dist"
   },
   "devDependencies": {
     "@types/bun": "latest"

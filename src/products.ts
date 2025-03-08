@@ -1,5 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { getBusinessIdByPhoneNumber } from "./business";
+import { getBusinessIdByPhoneNumber } from "./business.js";
 
 /**
  * Retrieves a single product from the database based on a business phone number and product name.
