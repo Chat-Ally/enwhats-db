@@ -16,4 +16,4 @@ import type { SupabaseClient } from "@supabase/supabase-js";
  * If an error occurs during the database operation, it logs the error to the console and returns `undefined`.
  */
 export declare function createOrder(supabase: SupabaseClient, chat_id: UUID, total: number, subtotal: number, products: number[]): Promise<any>;
-export declare function createProductOrder(supabase: SupabaseClient, products: number[], orderId: number): Promise<any[]>;
+export declare function createProductOrder(supabase: SupabaseClient, products: number[], orderId: number): Promise<any>;

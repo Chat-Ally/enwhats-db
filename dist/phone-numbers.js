@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,15 +34,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOrCreatePhoneNumber = getOrCreatePhoneNumber;
-exports.getPhoneIdByNumber = getPhoneIdByNumber;
 /**
  * Save a number to the database.
  *
  * @param {string} customerPhone - A phone number from a customer.
 */
-function getOrCreatePhoneNumber(supabase, customerPhone) {
+export function getOrCreatePhoneNumber(supabase, customerPhone) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, data, error, upsertData, error_1;
         return __generator(this, function (_b) {
@@ -72,7 +68,7 @@ function getOrCreatePhoneNumber(supabase, customerPhone) {
         });
     });
 }
-function getPhoneIdByNumber(supabase, phoneNumber) {
+export function getPhoneIdByNumber(supabase, phoneNumber) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, data, error;
         return __generator(this, function (_b) {

@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,15 +34,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBusinessIdByPhoneNumber = getBusinessIdByPhoneNumber;
 /**
  * Fetches the business ID associated with a given phone number.
  *
  * @param {number} businessPhone - The phone number of the business to retrieve.
  * @returns {Promise<number>} A promise that resolves to the business ID if found, or 0 if not found.
  */
-function getBusinessIdByPhoneNumber(supabase, businessPhone) {
+export function getBusinessIdByPhoneNumber(supabase, businessPhone) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, data, error;
         return __generator(this, function (_b) {

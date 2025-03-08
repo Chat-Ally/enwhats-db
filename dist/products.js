@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,10 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProduct = getProduct;
-exports.getProducts = getProducts;
-var business_js_1 = require("./business.js");
+import { getBusinessIdByPhoneNumber } from "./business.js";
 /**
  * Retrieves a single product from the database based on a business phone number and product name.
  *
@@ -46,12 +42,12 @@ var business_js_1 = require("./business.js");
  * @param {string} productName - The name of the product to retrieve.
  * @returns {(Promise<Product | null>)} A promise that resolves to a Product object or null if an error occurs.
  */
-function getProduct(supabase, businessPhone, productName) {
+export function getProduct(supabase, businessPhone, productName) {
     return __awaiter(this, void 0, void 0, function () {
         var businessId, _a, data, error;
         return __generator(this, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, (0, business_js_1.getBusinessIdByPhoneNumber)(supabase, String(businessPhone))];
+                case 0: return [4 /*yield*/, getBusinessIdByPhoneNumber(supabase, String(businessPhone))];
                 case 1:
                     businessId = _b.sent();
                     return [4 /*yield*/, supabase
@@ -76,12 +72,12 @@ function getProduct(supabase, businessPhone, productName) {
 * @param {number} businessPhone - The phone number of the business associated with the products.
 * @returns {(Promise<Product[] | null>)} A promise that resolves to an array of Product objects or null if an error occurs.
 */
-function getProducts(supabase, businessPhone) {
+export function getProducts(supabase, businessPhone) {
     return __awaiter(this, void 0, void 0, function () {
         var businessId, _a, data, error;
         return __generator(this, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, (0, business_js_1.getBusinessIdByPhoneNumber)(supabase, businessPhone)];
+                case 0: return [4 /*yield*/, getBusinessIdByPhoneNumber(supabase, businessPhone)];
                 case 1:
                     businessId = _b.sent();
                     return [4 /*yield*/, supabase

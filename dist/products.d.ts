@@ -13,4 +13,4 @@ export declare function getProduct(supabase: SupabaseClient, businessPhone: stri
 * @param {number} businessPhone - The phone number of the business associated with the products.
 * @returns {(Promise<Product[] | null>)} A promise that resolves to an array of Product objects or null if an error occurs.
 */
-export declare function getProducts(supabase: SupabaseClient, businessPhone: string): Promise<any[]>;
+export declare function getProducts(supabase: SupabaseClient, businessPhone: string): Promise<any>;

@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,9 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createOrder = createOrder;
-exports.createProductOrder = createProductOrder;
 /**
  * Creates a new order in the database.
  *
@@ -53,7 +49,7 @@ exports.createProductOrder = createProductOrder;
  * @returns {Promise<any[]> | undefined} An array containing the newly inserted record(s) upon successful insertion.
  * If an error occurs during the database operation, it logs the error to the console and returns `undefined`.
  */
-function createOrder(supabase, chat_id, total, subtotal, products) {
+export function createOrder(supabase, chat_id, total, subtotal, products) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, data, error;
         return __generator(this, function (_b) {
@@ -82,7 +78,7 @@ function createOrder(supabase, chat_id, total, subtotal, products) {
         });
     });
 }
-function createProductOrder(supabase, products, orderId) {
+export function createProductOrder(supabase, products, orderId) {
     return __awaiter(this, void 0, void 0, function () {
         var inserts, _a, data, error;
         return __generator(this, function (_b) {

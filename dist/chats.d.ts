@@ -8,4 +8,4 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 export declare function saveChatToDB(supabase: SupabaseClient, businessId: number, customerPhone: string, chatId: string): Promise<void>;
 export declare function getChatByClientAndBusinessPhone(supabase: SupabaseClient, customerPhone: string, businessPhone: string): Promise<any>;
 export declare function getChatId(supabase: SupabaseClient, businessId: number, customerPhoneId: number | null): Promise<any>;
-export declare function getChats(supabase: SupabaseClient): Promise<any[]>;
+export declare function getChats(supabase: SupabaseClient): Promise<any>;

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "bun build --target=node --outdir=dist ./src/index.ts",
     "prepare": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts",
-    "types": "npx -p typescript tsc src/index.ts --declaration --allowJs --outDir dist"
+    "types": "npx -p typescript tsc src/index.ts --declaration --allowJs --module esnext --outDir dist"
   },
   "devDependencies": {
     "@types/bun": "latest"

@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,27 +34,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.saveChatToDB = saveChatToDB;
-exports.getChatByClientAndBusinessPhone = getChatByClientAndBusinessPhone;
-exports.getChatId = getChatId;
-exports.getChats = getChats;
-var phone_numbers_js_1 = require("./phone-numbers.js");
-var business_js_1 = require("./business.js");
+import { getOrCreatePhoneNumber, getPhoneIdByNumber } from "./phone-numbers.js";
+import { getBusinessIdByPhoneNumber } from "./business.js";
 /**
  * Saves a chat to the database.
  *
  * @param {string} businessId - The ID of the business associated with the chat.
  * @param {string} customerPhone - The phone number of the customer associated with the chat.
  */
-function saveChatToDB(supabase, businessId, customerPhone, chatId) {
+export function saveChatToDB(supabase, businessId, customerPhone, chatId) {
     return __awaiter(this, void 0, void 0, function () {
         var phoneNumber, data, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     console.log("saveChatToDB");
-                    return [4 /*yield*/, (0, phone_numbers_js_1.getOrCreatePhoneNumber)(supabase, customerPhone)];
+                    return [4 /*yield*/, getOrCreatePhoneNumber(supabase, customerPhone)];
                 case 1:
                     phoneNumber = _a.sent();
                     if (!phoneNumber) return [3 /*break*/, 5];
@@ -78,15 +72,15 @@ function saveChatToDB(supabase, businessId, customerPhone, chatId) {
         });
     });
 }
-function getChatByClientAndBusinessPhone(supabase, customerPhone, businessPhone) {
+export function getChatByClientAndBusinessPhone(supabase, customerPhone, businessPhone) {
     return __awaiter(this, void 0, void 0, function () {
         var customerPhoneId, businesId, _a, chats, chatsError;
         return __generator(this, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, (0, phone_numbers_js_1.getPhoneIdByNumber)(supabase, customerPhone)];
+                case 0: return [4 /*yield*/, getPhoneIdByNumber(supabase, customerPhone)];
                 case 1:
                     customerPhoneId = _b.sent();
-                    return [4 /*yield*/, (0, business_js_1.getBusinessIdByPhoneNumber)(supabase, businessPhone)];
+                    return [4 /*yield*/, getBusinessIdByPhoneNumber(supabase, businessPhone)];
                 case 2:
                     businesId = _b.sent();
                     return [4 /*yield*/, supabase
@@ -104,7 +98,7 @@ function getChatByClientAndBusinessPhone(supabase, customerPhone, businessPhone)
         });
     });
 }
-function getChatId(supabase, businessId, customerPhoneId) {
+export function getChatId(supabase, businessId, customerPhoneId) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, data, error;
         return __generator(this, function (_b) {
@@ -124,7 +118,7 @@ function getChatId(supabase, businessId, customerPhoneId) {
         });
     });
 }
-function getChats(supabase) {
+export function getChats(supabase) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, data, error;
         return __generator(this, function (_b) {
