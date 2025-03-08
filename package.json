@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts",
-    "prepare": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts && npx -p typescript tsc src/index.ts --declaration --allowJs --emitDeclarationOnly --outDir dist",
+    "prepare": "bun build --target=node --outdir=dist --outfile=index.js ./src/index.ts",
     "types": "npx -p typescript tsc src/index.ts --declaration --allowJs --emitDeclarationOnly --outDir dist"
   },
   "devDependencies": {
